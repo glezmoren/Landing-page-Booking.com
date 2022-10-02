@@ -1,0 +1,52 @@
+@keyframes slideUp{
+    from{
+        transform: translateY(0%);
+    }
+    to{
+        transform: translateY(-100%);
+    }
+}
+
+@keyframes slideDown{
+    from{
+        transform: translateY(0%);
+    }
+    to{
+        transform: translateY(100%);
+    }
+}
+
+@keyframes fadeIn{
+
+    from{
+        transform: translateX(-300%);
+    }
+    to{
+        transform: translateX(0%);
+    }
+
+
+    // 0%{
+    //     opacity: 0;
+    // }
+    // 25%{
+    //     opacity: 1;
+    // }
+    // 99%{
+    //     opacity: 1;
+    // }
+    // 100%{
+    //     opacity: 0;
+    // }
+}
+@keyframes disableScroll {
+    0%{
+        overflow: hidden;
+    }
+    99%{
+        overflow: hidden;
+    }
+    100%{
+        overflow: initial;
+    }
+}

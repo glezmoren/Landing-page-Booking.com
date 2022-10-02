@@ -1,0 +1,210 @@
+@import '_reset', '_keyframes';
+body{
+    animation: disableScroll 5s ease 1;
+}
+.header {
+
+  width: 100%;
+  min-height: 100vh;
+  background-color: black;
+
+  
+    
+
+  &__fondo{
+      width: 100%;
+      min-height: 100%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      background-color: white;
+      z-index: 5;
+  
+      animation: slideUp 1s ease 1 5s both ;
+
+  }
+ 
+  &__logomin{
+      max-width: 40rem;
+      position: absolute;
+      top: calc( 50% - 50px );
+      left: calc( 50% - 20rem );
+  
+      animation: fadeIn 3s ease 1 1s both;
+
+      @media screen and (max-width: 700px) {
+          max-width: 20rem;
+          top: calc( 50% - 25px );
+          left: calc( 50% - 10rem );
+       }
+
+      @media screen and (max-width: 400px) {
+          max-width: 10rem;
+          top: calc( 50% - 15px );
+          left: calc( 50% - 5rem );
+       }
+  }
+
+//   &__azul{
+//       width: 100%;
+//       min-height: 100%;
+//       position: fixed;
+//       top: 0;
+//       left: 0;
+//       background-color: #03398f;
+//       z-index: 4;
+
+//       animation: slideDown 1s ease 1 6s both ;
+//   }
+
+
+  &__wrapper {
+    background-image: url(../assets/background.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    
+    height: 100vh;
+    width: 80%;
+    margin: auto;
+    position: relative;
+    
+    padding: 12rem 0;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+
+
+    @media screen and (max-width: 1960px) {
+       width: 100%;
+       padding: 8rem 0;
+    }
+    @media screen and (max-width: 500px) {
+       padding: 10rem 0;
+    }
+    
+
+  }
+  &__logo {
+    width: 50%;
+    @media screen and (max-width: 1960px) {
+      min-width: 36%;
+      
+   }
+    
+  }
+  &__h1 {
+    margin-top: 2rem;
+    font-size: 2.6em;
+    text-align: center;
+    color: #273b7d;
+    @media screen and (max-width: 1960px) {
+      font-size: 2em;
+      color: white;
+      margin-top: 0.6rem;
+    }
+    @media screen and (max-width: 500px) {
+      font-size: 1.6em;
+      margin-top: 1rem;
+      
+     }
+  }
+}
+
+.imagenes {
+    background-color: black;
+  &__wrapper {
+    width: 80%;
+    margin: auto;
+    position: relative;
+    @media screen and (max-width: 1960px) {
+       width: 100%;
+    }
+  }
+  &__caja {
+    position: relative;
+  }
+  &__uno {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+  }
+
+  &__dos {
+    position: relative; //tengo que poner al menos uno de ellos relativo para que el wrapper se adapte a el, porque el padre no se adapta a los hijos con posicionamiento fijo o absoluto, elegimos esta porque es la que cuando pintamos no queremor por arriba. Ahora el wrapper será del tamaño de la imagen
+    top: 0;
+    left: 0;
+    z-index: 0;
+    user-select: none;
+  }
+
+  &__svg {
+    position: absolute; //ponemos este de posicionamiento absoluto para que se adapte al tamaño del wrapper y entonces en el html ponemos que sea width y height 100% para que pueda pintar en toda la imagen, sino no abarcaría toda la imagen
+    top: 0;
+  }
+  
+  &__circulo {
+    pointer-events: none; //el circulo forma parte del wrapper en mi html, entonces si dejo que este sea sensible a los eventos (no poniendo el pointer-events: none) los eventos seguiran funcionando aunque yo este con el raton fuera del lo que yo considero "el wrapper" porque el circulo como esta dentro del wrapper estará ampliando el wrapper y seguirá haciendo caso al evento de aparecer cuando hago mousemove y el mouseleave no existirá porque nunca consigo salir del wrapper, ya que mi propio circulo es el wrapper. Al poner esto hago que el circulo, a pesar de estar en el wrapper no haga caso a los eventos. Esto no hace que deje de funcionarme porque en realidad donde yo estoy poniendo el evento es en el wrapper, el circulo me da igual, solo modifica sus caracteristicas con los eventos del wrapper. No necesito que el circulo haga caso a los eventos.
+    transition-property: transform;
+    transition-duration: 0.25s;
+  }
+}
+
+.footer {
+  width: 100%;
+  background-color: #03398f;
+  height: 100vh;
+  &__wrapper {
+    background-color: #03398f;
+    position: relative;
+
+    height: 100vh;
+
+    width: 80%;
+    margin: auto;
+    
+    padding: 24rem 6rem 0 4rem;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: flex-end;
+
+
+    @media screen and (max-width: 1960px) {
+        padding: 14rem 4rem 0 4rem;
+        width: 100%;
+        height: 100vh;
+    }
+    @media screen and (max-width: 500px) {
+        width: 100%;
+        height: 100vh;
+    }
+    
+   
+    
+  }
+  &__h2 {
+    font-size: 4em;
+    width: 100%;
+    text-align: center;
+    @media screen and (max-width: 500px) {
+     font-size: 2em;
+    }
+  }
+  &__caja {
+    width: 16%;
+    margin-top: 8rem;
+    position: absolute;
+    right: 5%;
+    bottom: 5%;
+  }
+  &__a {
+    margin: 1rem 0;
+  }
+
+  &__span {
+    color: #f5bc09;
+  }
+
+  
+}
